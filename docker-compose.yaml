@@ -13,6 +13,8 @@ services:
       - rentool_db_volume:/var/lib/mysql
   rentool_web: # tomcat web server
     image: tomcat:10.1.15-jre21 # use generic linux housed tomcat version 10.1.15 (most current at time since latest tag doesn't use this one) with explicit latest JDK LTS version 21
+    env_file:
+      - ./conf/tomcat-conf.env
     ports:
       - 8080:8080 # regular http port forward
       - 8443:8443 # regular https port forward
