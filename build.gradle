@@ -1,0 +1,18 @@
+plugins {
+	id 'java'
+	id 'war'
+}
+
+repositories{
+	mavenCentral()
+}
+
+dependencies{
+	implementation 'javax.servlet:javax.servlet-api:4.0.1'
+}
+
+war{
+	archiveBaseName = 'RenTool'
+	version = '1.0'
+	destinationDirectory = file('webapps')
+}
