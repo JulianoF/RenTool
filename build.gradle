@@ -24,9 +24,13 @@ war{
 	archiveBaseName = 'RenTool'
 	version = '1.0'
 	destinationDirectory = file('webapps')
-    exclude 'WEB-INF/**/*.jsp'
+    	exclude 'WEB-INF/**/*.jsp'
 	from('src/jsp') {
-        into('')
+       		into('')
 		include '**/*.jsp'
-    }
+   	 }
+        from('src') {
+       	 	into('WEB-INF')
+        	include 'web.xml'
+   	 }
 }

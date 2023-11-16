@@ -1,0 +1,17 @@
+
+<web-app>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- Servlet Declaration -->
+    <servlet>
+        <servlet-name>dbService</servlet-name>
+        <servlet-class>dbService</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>dbService</servlet-name>
+        <url-pattern>/dbCon</url-pattern>
+    </servlet-mapping>
+</web-app>
