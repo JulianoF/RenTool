@@ -16,7 +16,7 @@ sourceSets {
 }
 
 dependencies{
-	implementation 'javax.servlet:javax.servlet-api:4.0.1'
+	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 	implementation 'mysql:mysql-connector-java:8.0.28'
 }
 
@@ -26,11 +26,11 @@ war{
 	destinationDirectory = file('webapps')
     	exclude 'WEB-INF/**/*.jsp'
 	from('src/jsp') {
-       		into('')
+       	into('')
 		include '**/*.jsp'
    	 }
-        from('src') {
-       	 	into('WEB-INF')
-        	include 'web.xml'
+    from('src') {
+       	into('WEB-INF')
+        include 'web.xml'
    	 }
 }

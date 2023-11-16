@@ -5,6 +5,7 @@
 <body>
  
     <% out.print(2*5); %> 
+    <% out.print("Hello from JSP TEST1.0"); %> 
 
     <form action="dbCon" method="post">
  
