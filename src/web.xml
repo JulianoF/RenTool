@@ -6,13 +6,13 @@
 
     <!-- Servlet Declaration -->
     <servlet>
-        <servlet-name>dbService</servlet-name>
-        <servlet-class>dbService</servlet-class>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>TestServlet</servlet-class>
     </servlet>
     <!-- Servlet Mapping -->
     <servlet-mapping>
-        <servlet-name>dbService</servlet-name>
-        <url-pattern>/dbCon</url-pattern>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
     </servlet-mapping>
     
 </web-app>
