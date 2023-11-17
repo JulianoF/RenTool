@@ -34,7 +34,7 @@
                 type="javax.sql.DataSource"
                 username="${RENTOOL_SERVER_USERNAME}"
                 password="${RENTOOL_SERVER_PASSWORD}"
-                url="jdbc:mysql://localhost:3306/rentool" 
+                url="jdbc:mysql://rentool_db:3306/rentool" 
                 maxTotal="25"
                 maxIdle="10"
                 validationQuery="Select 1"/>
