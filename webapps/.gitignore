@@ -1,0 +1,3 @@
+# Dummy file to keep this folder on the repo but to ignore its contents
+*
+!.gitignore

@@ -1,0 +1,36 @@
+plugins {
+	id 'java'
+	id 'war'
+}
+
+repositories{
+    flatDir { dirs "lib" }
+	mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/java']
+        }
+    }
+}
+
+dependencies{
+	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
+	implementation 'mysql:mysql-connector-java:8.0.28'
+}
+
+war {
+    destinationDirectory = file('../webapps/')
+	from('docroot') {
+		exclude 'WEB-INF'
+		exclude 'META-INF'
+	}
+	webInf { 
+		from 'docroot/WEB-INF' 
+		exclude 'lib'
+	}
+}
+
+defaultTasks "build", "war"
