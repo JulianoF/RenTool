@@ -29,6 +29,14 @@ war{
        	into('')
 		include '**/*.jsp'
    	 }
+	from('src/css') {
+       	into('css')
+		include '**/*.css'
+   	 }
+	from('src/js') {
+       	into('js')
+		include '**/*.js'
+   	 }
     from('src') {
        	into('WEB-INF')
         include 'web.xml'
