@@ -11,13 +11,6 @@ plugins {
 }
 
 rootProject.name = 'RenTool'
-include('app', 'list', 'utilities')
+//include('app', 'list', 'utilities')
 
-file('.').eachDir{ sub -> 
-	sub.listFiles().each { file ->
-		if (file.name == "build.gradle") {
-			include sub.name
-			return
-		}
-	}
-}
+include(':rentool-web', ':rentool-api')

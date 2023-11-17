@@ -1,15 +1,16 @@
 plugins {
     id 'java'
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+    id 'war'
+    //id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
 }
 
 task dockerStart (type:Exec) {
-    executable "gradle"
+    executable "docker"
     args "compose", "up", "-d"
 }
 
 task dockerStop (type:Exec) {
-    executable "gradle"
+    executable "docker"
     args "compose", "down"
 }
 
