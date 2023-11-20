@@ -41,7 +41,7 @@
           <% } %>
 
         </ul>
-        <form class="d-flex" role="search" action="MakeSearch" method="POST">
+        <form class="d-flex w-25" role="search" action="MakeSearch" method="POST">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -62,13 +62,15 @@
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+          <li class="nav-item"><a href="index.jsp" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="searchResults.jsp" class="nav-link px-2 text-muted">Search</a></li>
+          <% if (session != null && session.getAttribute("email") != null) { %>
+              <li class="nav-item"><a href="Logout" class="nav-link px-2 text-muted">Logout</a></li>
+          <% } else { %>
+              <li class="nav-item"><a href="Logout" class="nav-link px-2 text-muted">Login</a></li>
+          <% } %>
         </ul>
-        <p class="text-center text-muted">© 2023 RenTool, Inc</p>
+        <p class="text-center text-muted">2023 RenTool, Inc</p>
       </footer>
     </div>
 </body>
