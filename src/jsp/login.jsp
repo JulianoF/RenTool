@@ -32,7 +32,7 @@
             <a class="nav-link" href="login.jsp">Login</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
+        <form class="d-flex" role="search" action="MakeSearch" method="POST">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -48,15 +48,17 @@
                 <div class="card-body p-5 text-center">
       
                   <h3 class="mb-5">Sign in</h3>
-      
+
+                <form action="UserAuth" method="POST">
+
                   <div class="form-outline mb-4">
-                    <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typeEmailX-2">Email</label>
+                    <input type="email" name="emailInput" class="form-control form-control-lg" />
+                    <label class="form-label" for="emailInput">Email</label>
                   </div>
       
                   <div class="form-outline mb-4">
-                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg" />
-                    <label class="form-label" for="typePasswordX-2">Password</label>
+                    <input type="password" name="passwordInput" class="form-control form-control-lg" />
+                    <label class="form-label" for="PasswordInput">Password</label>
                   </div>
       
                   <!-- Checkbox -->
@@ -66,7 +68,9 @@
                   </div>
       
                   <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-      
+                  
+                  </form>
+
                   <hr class="my-4">
       
                   <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"

@@ -13,6 +13,10 @@
         <servlet-name>creationServlet</servlet-name>
         <servlet-class>creationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>searchServlet</servlet-name>
+        <servlet-class>searchServlet</servlet-class>
+    </servlet>
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -23,5 +27,10 @@
         <servlet-name>creationServlet</servlet-name>
         <url-pattern>/AccountCreation</url-pattern>
     </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>searchServlet</servlet-name>
+        <url-pattern>/MakeSearch</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

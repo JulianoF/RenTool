@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html"%>
-<%@ page import="jakarta.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
 <html>
-   <head>
+
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RenTool</title>
   </head>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
    <div class="container-fluid">
@@ -43,14 +44,7 @@
     <br>
     <br>
     <br>
-
-    <% out.print("Hello from JSP INDEX PAGE"); %> 
-    <% if (session != null && session.getAttribute("username") != null) { %>
-        <p>Welcome, <%= session.getAttribute("username") %>!</p>
-    <% } else { %>
-              <p>You are not logged in.</p>
-    <% } %>
-
+    <% out.print("Hello from JSP Search Results"); %> 
     <br>
     <br>
     <br>
