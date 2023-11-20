@@ -4,6 +4,10 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- in minutes -->
+    </session-config>
+
     <!-- Servlet Declaration -->
     <servlet>
         <servlet-name>authServlet</servlet-name>
@@ -17,7 +21,10 @@
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>searchServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>logoutServlet</servlet-class>
+    </servlet>
     <!-- Servlet Mapping -->
     <servlet-mapping>
         <servlet-name>authServlet</servlet-name>
@@ -31,6 +38,9 @@
         <servlet-name>searchServlet</servlet-name>
         <url-pattern>/MakeSearch</url-pattern>
     </servlet-mapping>
-
+     <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
 
 </web-app>

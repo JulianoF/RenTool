@@ -27,9 +27,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Create Listing</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Login</a>
-          </li>
+
+          <% if (session != null && session.getAttribute("email") != null) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="Logout">Logout</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="login.jsp">Login</a>
+            </li>
+          <% } %>
+
         </ul>
         <form class="d-flex" role="search" action="MakeSearch" method="POST">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -45,8 +53,9 @@
     <br>
 
     <% out.print("Hello from JSP INDEX PAGE"); %> 
-    <% if (session != null && session.getAttribute("username") != null) { %>
-        <p>Welcome, <%= session.getAttribute("username") %>!</p>
+
+    <% if (session != null && session.getAttribute("email") != null) { %>
+        <p>Welcome, <%= session.getAttribute("email") %>!</p>
     <% } else { %>
               <p>You are not logged in.</p>
     <% } %>

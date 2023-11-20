@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
 <html>
@@ -28,9 +29,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Create Listing</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Login</a>
-          </li>
+
+          <% if (session != null && session.getAttribute("email") != null) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="Logout">Logout</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="login.jsp">Login</a>
+            </li>
+          <% } %>
+
         </ul>
         <form class="d-flex" role="search" action="MakeSearch" method="POST">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -67,41 +76,41 @@
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example1" class="form-control" />
-                        <label class="form-label" for="form3Example1">First name</label>
+                        <input type="text" name="fname" class="form-control" />
+                        <label class="form-label" for="ffname">First name</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example2" class="form-control" />
-                        <label class="form-label" for="form3Example2">Last name</label>
+                        <input type="text" name="lname" class="form-control" />
+                        <label class="form-label" for="lname">Last name</label>
                       </div>
                     </div>
                   </div>
   
                   <!-- Email input -->
                   <div class="form-outline mb-4">
-                    <input type="email" id="form3Example3" class="form-control" />
-                    <label class="form-label" for="form3Example3">Email address</label>
+                    <input type="email" name="email" class="form-control" />
+                    <label class="form-label" for="email">Email address</label>
                   </div>
   
                   <!-- Password input -->
                   <div class="form-outline mb-4">
-                    <input type="password" id="form3Example4" class="form-control" />
-                    <label class="form-label" for="form3Example4">Password</label>
+                    <input type="password" name="password" class="form-control" />
+                    <label class="form-label" for="password">Password</label>
                   </div>
 
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example4" class="form-control" />
-                        <label class="form-label" for="form3Example1">Country</label>
+                        <input type="text" name="country" class="form-control" />
+                        <label class="form-label" for="country">Country</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example5" class="form-control" />
-                        <label class="form-label" for="form3Example2">Province/State</label>
+                        <input type="text" name="province" class="form-control" />
+                        <label class="form-label" for="province">Province/State</label>
                       </div>
                     </div>
                   </div>  
@@ -109,14 +118,14 @@
                   <div class="row">
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example6" class="form-control" />
-                        <label class="form-label" for="form3Example1">City</label>
+                        <input type="text" name="city" class="form-control" />
+                        <label class="form-label" for="city">City</label>
                       </div>
                     </div>
                     <div class="col-md-6 mb-4">
                       <div class="form-outline">
-                        <input type="text" id="form3Example7" class="form-control" />
-                        <label class="form-label" for="form3Example2">Postal Code</label>
+                        <input type="text" name="postal" class="form-control" />
+                        <label class="form-label" for="postal">Postal Code</label>
                       </div>
                     </div>
                   </div>                    

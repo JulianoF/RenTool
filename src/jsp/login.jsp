@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html"%>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
 
 <!DOCTYPE html>
 <html>
@@ -28,9 +29,17 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Create Listing</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.jsp">Login</a>
-          </li>
+
+          <% if (session != null && session.getAttribute("email") != null) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="Logout">Logout</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="login.jsp">Login</a>
+            </li>
+          <% } %>
+
         </ul>
         <form class="d-flex" role="search" action="MakeSearch" method="POST">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -100,7 +109,6 @@
     <script>
         function gotoCreation(){
             window.location.href = "accCreation.jsp";
-            console.log("made it here");
         }
     </script>
 </body>

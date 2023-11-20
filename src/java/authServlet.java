@@ -1,3 +1,10 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
@@ -10,23 +17,38 @@ public class authServlet extends HttpServlet {
         response.setContentType("text/html");// setting the content type
         PrintWriter pw = response.getWriter();// get the stream to write the data
 
-        // writing html in the stream
-        pw.println("<html><body>");
-        pw.println("Welcome to AUTH SERVLET");
-        pw.println("</body></html>");
-
-        String username = request.getParameter("emailInput");
+        String email = request.getParameter("emailInput");
         String password = request.getParameter("passwordInput");
 
-        // Validate username and password (replace with your authentication logic)
-        if ("user123@email.com".equals(username) && "password123".equals(password)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            response.sendRedirect("index.jsp");
-        } else {
-            response.sendRedirect("login.jsp");
-        }
+        try {
+            Connection connection = dbConnector.getConnection();
 
+            // Prepare the SQL query for authentication
+            String sql = "SELECT * FROM users WHERE email=? AND password=?";
+            try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                pstmt.setString(1, email);
+                pstmt.setString(2, password);
+
+                // Execute the query
+                ResultSet resultSet = pstmt.executeQuery();
+
+                if (resultSet.next()) {
+                    // Successful login
+                    HttpSession session = request.getSession();
+                    session.setAttribute("email", email);
+                    response.sendRedirect("index.jsp");
+                } else {
+                    // Failed login
+                    response.sendRedirect("login.jsp");
+                }
+            }
+
+            // Close the database connection
+            dbConnector.closeConnection(connection);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            pw.println("<h2>Error: " + e.getMessage() + "</h2>");
+        }
         pw.close();// closing the stream
     }
 }
