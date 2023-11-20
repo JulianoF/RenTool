@@ -6,13 +6,22 @@
 
     <!-- Servlet Declaration -->
     <servlet>
-        <servlet-name>TestServlet</servlet-name>
-        <servlet-class>TestServlet</servlet-class>
+        <servlet-name>authServlet</servlet-name>
+        <servlet-class>authServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>creationServlet</servlet-name>
+        <servlet-class>creationServlet</servlet-class>
+    </servlet>
+
     <!-- Servlet Mapping -->
     <servlet-mapping>
-        <servlet-name>TestServlet</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>authServlet</servlet-name>
+        <url-pattern>/UserAuth</url-pattern>
     </servlet-mapping>
-    
+     <servlet-mapping>
+        <servlet-name>creationServlet</servlet-name>
+        <url-pattern>/AccountCreation</url-pattern>
+    </servlet-mapping>
+
 </web-app>

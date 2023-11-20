@@ -1,5 +1,3 @@
-conf/mysql-conf.env
-conf/tomcat-conf.env
 
 # Ignore Gradle project-specific cache directory
 .gradle
