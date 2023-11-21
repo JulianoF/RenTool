@@ -22,7 +22,7 @@
            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link" href="profile.jsp">Profile</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="createListing.jsp">Create Listing</a>

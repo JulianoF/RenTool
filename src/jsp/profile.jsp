@@ -52,13 +52,7 @@
     <br>
     <br>
 
-    <% out.print("INDEX PAGE"); %> 
-
-    <% if (session != null && session.getAttribute("email") != null) { %>
-        <p>Welcome, <%= session.getAttribute("email") %>!</p>
-    <% } else { %>
-              <p>You are not logged in.</p>
-    <% } %>
+    <% out.print("PROFILE PAGE"); %> 
 
     <br>
     <br>
@@ -80,4 +74,4 @@
       </footer>
     </div>
 </body>
-</html> 
+</html>
