@@ -27,7 +27,7 @@
             <a class="nav-link" href="#">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Create Listing</a>
+            <a class="nav-link" href="createListing.jsp">Create Listing</a>
           </li>
 
           <% if (session != null && session.getAttribute("email") != null) { %>
@@ -49,15 +49,37 @@
     </div>
   </nav>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <% out.print("Hello from JSP Search Results"); %> 
-    <br>
-    <br>
-    <br>
-    <br>
+
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+
+<!-- USE FOR LOOPS TO REPEAT THE LAYOUT BELOW FOR EACH LISTING-->
+            <div class="row p-2 bg-white border rounded">
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                <div class="col-md-6 mt-1">
+                    <h5>LISTING 1 NAME</h5>
+                    <div class="d-flex flex-row">
+                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>Info Here</span>
+                    </div>
+                    <div class="mt-1 mb-1 spec-1"><span>INFO HERE <br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>INFO HERE <br></span></div>
+                    <p class="text-justify text-truncate para mb-0">INJECT LISTING DESCRIPTION HERE</p>
+                </div>
+                <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                    <div class="d-flex flex-row align-items-center">
+                        <h4 class="mr-1">$PRICE.PRICE</h4>
+                    </div>
+                    <h6 class="text-success">Close By</h6>
+                    <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to Cart</button></div>
+                </div>
+            </div>
+<!-- USE FOR LOOPS TO REPEAT THE LAYOUT ABOVE FOR EACH LISTING-->
+
+        </div>
+    </div>
+</div>
+
 
     <div class="container">
       <footer class="py-3 my-4">

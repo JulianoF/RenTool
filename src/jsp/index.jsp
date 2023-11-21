@@ -25,7 +25,7 @@
             <a class="nav-link" href="#">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Create Listing</a>
+            <a class="nav-link" href="createListing.jsp">Create Listing</a>
           </li>
 
           <% if (session != null && session.getAttribute("email") != null) { %>
@@ -52,7 +52,7 @@
     <br>
     <br>
 
-    <% out.print("Hello from JSP INDEX PAGE"); %> 
+    <% out.print("INDEX PAGE"); %> 
 
     <% if (session != null && session.getAttribute("email") != null) { %>
         <p>Welcome, <%= session.getAttribute("email") %>!</p>

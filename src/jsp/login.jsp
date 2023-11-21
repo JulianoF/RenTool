@@ -27,7 +27,7 @@
             <a class="nav-link" href="#">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Create Listing</a>
+            <a class="nav-link" href="createListing.jsp">Create Listing</a>
           </li>
 
           <% if (session != null && session.getAttribute("email") != null) { %>
@@ -98,7 +98,7 @@
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item"><a href="index.jsp" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="searchResults.jsp" class="nav-link px-2 text-muted">Search</a></li>
-          
+
           <% if (session != null && session.getAttribute("email") != null) { %>
               <li class="nav-item"><a href="Logout" class="nav-link px-2 text-muted">Logout</a></li>
           <% } else { %>
