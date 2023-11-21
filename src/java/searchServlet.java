@@ -25,18 +25,22 @@ public class searchServlet extends HttpServlet {
             String sql = "SELECT items.*, listing.*\n" +
                          "FROM items\n" +
                          "LEFT JOIN listing ON items.ItemID = listing.ItemID\n" +
-                         "WHERE items.ItemName LIKE '%?%'\n" +
-                         "LIMIT 4\n" +
-                         "UNION\n" +
-                         "SELECT items.*, listing.*\n" +
-                         "FROM items\n" +
-                         "LEFT JOIN listing ON items.ItemID = listing.ItemID\n" +
-                         "WHERE items.ItemID NOT IN (\n" +
-                         "    SELECT ItemID\n" +
-                         "    FROM items\n" +
-                         "    WHERE ItemName LIKE '%h?%'\n" +
-                         ")\n" +
-                         "LIMIT 4;";
+                         "WHERE items.ItemName LIKE '%ham%'\n" +
+            "   OR items.ItemID IN (\n" +
+            "       SELECT ItemID\n" +
+            "       FROM items\n" +
+            "       WHERE ItemName LIKE '%ham%'\n" +
+            "   )\n" +
+            "UNION\n" +
+            "SELECT items.*, listing.*\n" +
+            "FROM items\n" +
+            "LEFT JOIN listing ON items.ItemID = listing.ItemID\n" +
+            "WHERE NOT EXISTS (\n" +
+            "    SELECT 1\n" +
+            "    FROM items\n" +
+            "    WHERE ItemName LIKE '%ham%'\n" +
+            ")\n" +
+            "LIMIT 4;";
             try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                 pstmt.setString(1, searchQuery);
                 
