@@ -7,21 +7,17 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
 
-public class searchServlet extends HttpServlet {
+public class listingServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
         res.setContentType("text/html");// setting the content type
         PrintWriter pw = res.getWriter();// get the stream to write the data
 
-        String searchQuery = req.getParameter("searchField");
-
-        // SQL CODE HERE
-  
-        req.setAttribute("resultMessage", searchQuery);
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchResults.jsp");
-        dispatcher.forward(req, res);
+        // writing html in the stream
+        pw.println("<html><body>");
+        pw.println("Welcome to servlet MAKE LISTING");
+        pw.println("</body></html>");
 
         pw.close();// closing the stream
     }

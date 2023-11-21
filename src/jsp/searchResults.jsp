@@ -42,7 +42,7 @@
 
         </ul>
         <form class="d-flex w-25" role="search" action="MakeSearch" method="POST">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name = "searchField">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
