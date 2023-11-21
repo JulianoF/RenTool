@@ -6,3 +6,6 @@ conf/tomcat-conf.env
 
 # Ignore Gradle build output directory
 build
+rentool-api/.settings/org.eclipse.jdt.core.prefs
+conf/tomcat-conf.env
+conf/mysql-conf.env
