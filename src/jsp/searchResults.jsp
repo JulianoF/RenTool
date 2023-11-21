@@ -71,10 +71,13 @@
                         <h4 class="mr-1">$PRICE.PRICE</h4>
                     </div>
                     <h6 class="text-success">Close By</h6>
-                    <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to Cart</button></div>
+                    <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button" onclick="gotoDetails()">Details</button>
+                    <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to Cart</button></div>
                 </div>
             </div>
 <!-- USE FOR LOOPS TO REPEAT THE LAYOUT ABOVE FOR EACH LISTING-->
+
+<% session.getAttribute("resultMessage"); %>
 
         </div>
     </div>
@@ -95,5 +98,12 @@
         <p class="text-center text-muted">2023 RenTool, Inc</p>
       </footer>
     </div>
+
+    <script>
+        function gotoDetails(){
+            window.location.href = "listingDetails.jsp";
+        }
+    </script>
+
 </body>
 </html> 
