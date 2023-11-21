@@ -47,46 +47,49 @@
     </div>
   </nav>
 
-    <% out.print("CREATE LISTING PAGE"); %> 
-
- <div class="container mt-5">
-        <h2>Create Product Listing</h2>
-        <form action="process-listing" method="post" enctype="multipart/form-data">
-            <!-- Product Name -->
-            <div class="form-group">
-                <label for="productName">Product Name</label>
-                <input type="text" class="form-control" id="productName" name="productName" required>
-            </div>
-
-            <!-- Location -->
-            <div class="form-group">
-                <label for="location">Location</label>
-                <input type="text" class="form-control" id="location" name="location" required>
-            </div>
-
-            <!-- Price -->
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" class="form-control" id="price" name="price" required>
-            </div>
-
-            <!-- Description -->
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-            </div>
-
-            <!-- Product Photo Upload -->
-            <div class="form-group">
-                <label for="productPhoto">Product Photo</label>
-                <input type="file" class="form-control-file" id="productPhoto" name="productPhoto" accept="image/*">
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Create Listing</button>
-        </form>
-    </div>
-
+<div class="container mt-4">
+    <h2>Product Listing Form</h2>
+    <form action="MakeListing" method="POST">
+      <div class="form-group">
+        <label for="itemName">Item Name</label>
+        <input type="text" class="form-control" name="itemName" placeholder="Enter item name" required>
+      </div>
+      <div class="form-group">
+        <label for="itemCondition">Item Condition</label>
+        <select class="form-control" name="itemCondition" required>
+          <option value="New">New</option>
+          <option value="Poor">Poor</option>
+          <option value="Used">Used</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" name="description" rows="3" placeholder="Enter description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="rentalPrice">Rental Price</label>
+        <input type="number" class="form-control" name="rentalPrice" placeholder="Enter rental price" required>
+      </div>
+      <div class="form-group">
+        <label for="dateListed">Date Listed</label>
+        <input type="date" class="form-control" name="dateListed" required>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" name="inUse">
+          <label class="form-check-label" for="inUse">In Use</label>
+        </div>
+      </div>
+      <br>
+       <!-- Product Photo Upload -->
+       <div class="form-group">
+          <label for="productPhoto">Product Photo</label>
+          <input type="file" class="form-control-file" id="productPhoto" name="productPhoto" accept="image/*">
+       </div>
+       <br>   
+      <button type="submit" class="btn btn-primary">Create Listing</button>
+    </form>
+  </div>
 
     <div class="container">
       <footer class="py-3 my-4">

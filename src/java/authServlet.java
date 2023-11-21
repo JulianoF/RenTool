@@ -34,6 +34,7 @@ public class authServlet extends HttpServlet {
                     // Successful login
                     HttpSession session = request.getSession();
                     session.setAttribute("email", email);
+                    session.setAttribute("UserID", resultSet.getInt("UserID"));
                     response.sendRedirect("index.jsp");
                 } else {
                     // Failed login

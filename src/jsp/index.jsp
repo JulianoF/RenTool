@@ -55,7 +55,7 @@
     <% out.print("INDEX PAGE"); %> 
 
     <% if (session != null && session.getAttribute("email") != null) { %>
-        <p>Welcome, <%= session.getAttribute("email") %>!</p>
+        <p>Welcome, <%= session.getAttribute("UserID") %>!</p>
     <% } else { %>
               <p>You are not logged in.</p>
     <% } %>
