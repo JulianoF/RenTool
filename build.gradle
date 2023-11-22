@@ -18,6 +18,7 @@ sourceSets {
 dependencies{
 	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
 	implementation 'mysql:mysql-connector-java:8.0.28'
+	 implementation 'org.json:json:20231013'
 }
 
 war{

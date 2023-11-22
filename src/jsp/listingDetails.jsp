@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="java.util.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -48,20 +49,58 @@
   </nav>
 
     <br>
-    <br>
-    <br>
-    <br>
 
-    <% out.print("LISTING DETAILS PAGE"); %> 
+      <%
+           byte[] imageData = (byte[]) session.getAttribute("ImageData");
+           String itemName =  (String) session.getAttribute("ItemName");
+           String condition = (String) session.getAttribute("Condition");
+           String dateListed = (String) session.getAttribute("DateListed");
+           String desc = (String) session.getAttribute("Desc");
+           int rentalPrice = (int) session.getAttribute("RentalPrice");
+      %>
 
-    <% if (session != null && session.getAttribute("email") != null) { %>
-        <p>Welcome, <%= session.getAttribute("UserID") %>!</p>
-    <% } else { %>
-              <p>You are not logged in.</p>
-    <% } %>
+    <div class="container py-4">
 
-    <br>
-    <br>
+    <div class="p-5 mb-4 bg-light border rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold"><% out.print(itemName);%></h1>
+        <p class="col-md-8 fs-4">Price: $<% out.print(rentalPrice);%> </p>
+        <p class="col-md-8 fs-4">Condition: <% out.print(condition);%></p>
+        <p class="col-md-8 fs-4">Date Listed: <% out.print(dateListed);%> </p>
+        <p class="col-md-8 fs-4">Description: <% out.print(desc);%> </p>
+        <button class="btn btn-primary btn-lg" type="button">Order</button>
+      </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+        <h4 class="display-6 fw-bold">Product Image</h4>
+       <!-- Product Image -->
+        <% if(imageData != null){
+            String base64Image = Base64.getEncoder().encodeToString(imageData); %>
+            <div class="col-md-4 mt-2"><img class="img-fluid " src="data:image/jpeg;base64, <%= base64Image %>"></div>
+        <% }else{ %>
+            <div class="col-md-4 mt-2"><img class="img-fluid " src="https://i.imgur.com/Ycfi8RS.png"></div>
+        <% } %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-light border rounded-3">
+        <h4 class="display-6 fw-bold">Product Location</h4>
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1dYOUR_LATITUDE!2dYOUR_LONGITUDE!3d14!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3AOntario+Canada!2sYOUR_PLACE_NAME!5e0!3m2!1sen!2sus!4vYOUR_MAP_VERSION"
+            width="100%"
+            height="90%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
     <br>
     <br>
 

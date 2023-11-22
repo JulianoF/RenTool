@@ -61,7 +61,20 @@
         <div class="col-md-10">
 <!-- USE OF LOOP TO REPEAT THE LAYOUT BELOW FOR EACH LISTING-->
         <% while( i < j){ 
-           byte[] imageData = (byte[]) request.getAttribute("ImageData_"+i); %>
+           byte[] imageData = (byte[]) request.getAttribute("ImageData_"+i);
+           String itemName =  (String) request.getAttribute("ItemName_"+i);
+           String condition = (String) request.getAttribute("Condition_"+i);
+           String dateListed = (String) request.getAttribute("DateListed_"+i);
+           String desc = (String) request.getAttribute("Desc_"+i);
+           int rentalPrice = (int) request.getAttribute("RentalPrice_"+i);
+
+           request.getSession().setAttribute("ImageData", imageData);
+           request.getSession().setAttribute("ItemName", itemName);
+           request.getSession().setAttribute("Condition", condition);
+           request.getSession().setAttribute("DateListed", dateListed);
+           request.getSession().setAttribute("Desc", desc);
+           request.getSession().setAttribute("RentalPrice", rentalPrice);
+           %>
 
             <div class="row p-2 bg-white border rounded">
                 <% if(imageData != null){
@@ -72,17 +85,17 @@
                  <% } %>
 
                 <div class="col-md-6 mt-1">
-                    <h5><% out.print((String) request.getAttribute("ItemName_"+i));%></h5>
+                    <h5><% out.print(itemName);%></h5>
                     <div class="d-flex flex-row">
-                        <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>Info Here</span>
+                    <br>
                     </div>
-                    <div class="mt-1 mb-1 spec-1"><span>Condition: <% out.print((String) request.getAttribute("Condition_"+i));%> <br></span></div>
-                    <div class="mt-1 mb-1 spec-1"><span>Listed:  <% out.print((String) request.getAttribute("DateListed_"+i));%><br></span></div>
-                    <p class="text-justify text-truncate para mb-0"><% out.print((String) request.getAttribute("Desc_"+i));%></p>
+                    <div class="mt-1 mb-1 spec-1"><span>Condition: <% out.print(condition);%> <br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>Listed:  <% out.print(dateListed);%><br></span></div>
+                    <p class="text-justify text-truncate para mb-0"><% out.print(desc);%></p>
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                     <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">$<% out.print((int) request.getAttribute("RentalPrice_"+i));%></h4>
+                        <h4 class="mr-1">$<% out.print(rentalPrice);%></h4>
                     </div>
                     <h6 class="text-success">Close By</h6>
                     <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button" onclick="gotoDetails()">Details</button>
