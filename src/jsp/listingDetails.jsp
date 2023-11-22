@@ -91,7 +91,7 @@
         <div class="h-100 p-5 bg-light border rounded-3">
         <h4 class="display-6 fw-bold">Product Location</h4>
             <iframe
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPHcEtg4WlomBsIFRYqIUl9gawo8-qqNc&q=<%= latitude %>,<%= longitude %>&zoom=15" allowfullscreen
+            src="https://www.google.com/maps/embed/v1/place?key=&q=<%= latitude %>,<%= longitude %>&zoom=15" allowfullscreen
             width="100%"
             height="90%"
             style="border:0;"

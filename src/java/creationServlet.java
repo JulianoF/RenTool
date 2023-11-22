@@ -33,7 +33,7 @@ public class creationServlet extends HttpServlet {
 
         String apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
         + URLEncoder.encode(postal + ", " + province + ", " + country, "UTF-8")
-        + "&key=AIzaSyBPHcEtg4WlomBsIFRYqIUl9gawo8-qqNc";
+        + "&key=";
 
         // Make the API request
         URL url = new URL(apiUrl);
