@@ -19,6 +19,13 @@ public class listingServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
 
+        InputStream inputStream = null; 
+        Part filePart = req.getPart("productPhoto");
+
+        if(filePart != null){
+            inputStream = filePart.getInputStream();
+        }
+
         int userID = (int) session.getAttribute("UserID");
         int itemID;
         String itemName = req.getParameter("itemName");
@@ -37,14 +44,17 @@ public class listingServlet extends HttpServlet {
         try {
             Connection connection = dbConnector.getConnection();
 
-            String sql = "INSERT INTO items (UserID, ItemName, ItemCondition,RentalPrice,Description) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO items (UserID, ItemName, ItemCondition,RentalPrice,Description,ProductImage) VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement pstmt1 = connection.prepareStatement(sql)) {
                 pstmt1.setInt(1, userID);
                 pstmt1.setString(2, itemName);
                 pstmt1.setString(3, itemCondition);
                 pstmt1.setString(4, rentalPrice);
                 pstmt1.setString(5, description);
-
+                if (inputStream != null) {
+                    // fetches input stream of the upload file for the blob column
+                    pstmt1.setBlob(6, inputStream);
+                }
                 // Execute the query
                 int rowsAffected = pstmt1.executeUpdate();
 
