@@ -23,7 +23,7 @@
            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
          </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.jsp">Profile</a>
+            <form action="GotoProfile" method = "POST"> <button class="nav-link" type ="submit">Profile</button></form>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="createListing.jsp">Create Listing</a>
@@ -70,7 +70,9 @@
         <p class="col-md-8 fs-4">Condition: <% out.print(condition);%></p>
         <p class="col-md-8 fs-4">Date Listed: <% out.print(dateListed);%> </p>
         <p class="col-md-8 fs-4">Description: <% out.print(desc);%> </p>
-        <button class="btn btn-primary btn-lg" type="button">Order</button>
+        <form action ="MakeOrder" method="POST">
+          <button class="btn btn-primary btn-lg" type="submit">Order</button>
+        </form>
       </div>
     </div>
 

@@ -24,7 +24,7 @@
            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
          </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.jsp">Profile</a>
+            <form action="GotoProfile" method = "POST"> <button class="nav-link" type ="submit">Profile</button></form>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="createListing.jsp">Create Listing</a>
@@ -58,13 +58,12 @@
           <div class="col-lg-6 mb-5 mb-lg-0">
             <h1 class="my-5 display-3 fw-bold ls-tight">
               The best offer <br />
-              <span class="text-primary">for your business</span>
+              <span class="text-primary">for your tool rental needs</span>
             </h1>
             <p style="color: hsl(217, 10%, 50.8%)">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-              quibusdam tempora at cupiditate quis eum maiores libero
-              veritatis? Dicta facilis sint aliquid ipsum atque?
+              Look no further for the best service to rent/loan tools for whatever projects you may need.
+              If you want to make some extra cash or you need that last minute tool, RenTool is the
+              place for you.
             </p>
           </div>
   

@@ -34,11 +34,11 @@ public class listingServlet extends HttpServlet {
         String rentalPrice = req.getParameter("rentalPrice");
         String dateListed = req.getParameter("dateListed");
         String inUseS = req.getParameter("inUse");
-        int inUse;
-        if(inUseS.equals("on")){
-            inUse = 1;
-        }else{
-            inUse = 0;
+        int inUse = 0;
+        if(inUseS != null){
+            if(inUseS.equals("on") ){
+                inUse = 1;
+            }     
         }
 
         try {

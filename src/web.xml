@@ -34,6 +34,14 @@
             <file-size-threshold>0</file-size-threshold>
         </multipart-config>
     </servlet>
+    <servlet>
+        <servlet-name>orderServlet</servlet-name>
+        <servlet-class>orderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>profileServlet</servlet-name>
+        <servlet-class>profileServlet</servlet-class>
+    </servlet>
 
     <!-- Servlet Mapping -->
     <servlet-mapping>
@@ -55,6 +63,14 @@
      <servlet-mapping>
         <servlet-name>listingServlet</servlet-name>
         <url-pattern>/MakeListing</url-pattern>
-    </servlet-mapping>   
+    </servlet-mapping>  
+    <servlet-mapping>
+        <servlet-name>orderServlet</servlet-name>
+        <url-pattern>/MakeOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>profileServlet</servlet-name>
+        <url-pattern>/GotoProfile</url-pattern>
+    </servlet-mapping>
 
 </web-app>
