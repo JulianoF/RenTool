@@ -1,0 +1,40 @@
+version: "0.0.1"
+
+services:
+  rentool_db: # mysql database server
+    image: mysql:8.2.0 # user generic linux housed mysql 8.2.0 (specify since latest tag may use innovation branch).
+    env_file:
+      - ./conf/mysql-conf.env
+      - ./conf/tomcat-conf.env
+    networks:
+      - rentool_net
+    ports:
+      - 3306:3306 # mysql JDBC port forward
+    volumes:
+      - rentool_db_volume:/var/lib/mysql
+      - ./conf/startup.sql:/docker-entrypoint-initdb.d/startup.sql
+    command: "mysqld --init-file /docker-entrypoint-initdb.d/startup.sql"
+  rentool_web: # tomcat web server
+    image: tomcat:10.1.15-jre21 # use generic linux housed tomcat version 10.1.15 (most current at time since latest tag doesn't use this one) with explicit latest JDK LTS version 21
+    env_file:
+      - ./conf/tomcat-conf.env
+    ports:
+      - 8080:8080 # regular http port forward
+      - 8443:8443 # regular https port forward
+      - 8009:8009 # jdpa debug port forward
+    networks:
+      rentool_net:
+        aliases:
+          - rentool.local
+    depends_on:
+      - rentool_db
+    volumes:
+      - ./conf/context.xml:/usr/local/tomcat/conf/context.xml
+      - ./webapps/:/usr/local/tomcat/webapps/
+      - ./conf/server.xml:/usr/local/tomcat/conf/server.xml
+
+networks:
+  rentool_net:
+
+volumes:
+  rentool_db_volume:

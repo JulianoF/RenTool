@@ -1,0 +1,12 @@
+conf/mysql-conf.env
+conf/tomcat-conf.env
+webapps
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+rentool-api/.settings/org.eclipse.jdt.core.prefs
+conf/tomcat-conf.env
+conf/mysql-conf.env

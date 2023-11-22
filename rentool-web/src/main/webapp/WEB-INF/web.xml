@@ -1,0 +1,55 @@
+
+<web-app>
+    <welcome-file-list>
+        <welcome-file>/jsp/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- in minutes -->
+    </session-config>
+
+    <!-- Servlet Declaration -->
+    <servlet>
+        <servlet-name>authServlet</servlet-name>
+        <servlet-class>authServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>creationServlet</servlet-name>
+        <servlet-class>creationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>searchServlet</servlet-name>
+        <servlet-class>searchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>logoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listingServlet</servlet-name>
+        <servlet-class>listingServlet</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>authServlet</servlet-name>
+        <url-pattern>/UserAuth</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>creationServlet</servlet-name>
+        <url-pattern>/AccountCreation</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>searchServlet</servlet-name>
+        <url-pattern>/MakeSearch</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>listingServlet</servlet-name>
+        <url-pattern>/MakeListing</url-pattern>
+    </servlet-mapping>   
+
+</web-app>
