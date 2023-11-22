@@ -3,11 +3,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import jakarta.servlet.http.*;
-import jakarta.servlet.*;
-import java.io.*;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 public class authServlet extends HttpServlet {
+
+    public authServlet() {
+        super();
+    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

@@ -19,8 +19,7 @@ sourceSets {
 
 dependencies{
 	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
-	implementation 'mysql:mysql-connector-java:8.0.28'
-}
+	implementation 'com.mysql:mysql-connector-j:8.2.0'}
 
 war {
     destinationDirectory = file('../webapps/')
