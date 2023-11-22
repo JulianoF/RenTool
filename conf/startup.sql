@@ -50,12 +50,9 @@ CREATE TABLE IF NOT EXISTS `listing` (
 
 CREATE TABLE IF NOT EXISTS `location` (
   `UserID_Location` int NOT NULL,
-  `LocationNickname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Address` varchar(75) DEFAULT NULL,
   `longitude` float DEFAULT NULL,
   `latitude` float DEFAULT NULL,
-  `instructions` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`UserID_Location`,`LocationNickname`),
+  PRIMARY KEY (`UserID_Location`),
   CONSTRAINT `location_FK` FOREIGN KEY (`UserID_Location`) REFERENCES `users` (`UserID`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
