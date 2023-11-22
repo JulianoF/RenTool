@@ -38,4 +38,7 @@
                 maxTotal="25"
                 maxIdle="10"
                 validationQuery="Select 1"/>
+    
+    <!-- Google Maps Api key -->
+    <Environment name="googleMapsApiKey" value="${GOOGLE_API_KEY}" type="java.lang.String"/>
 </Context>

@@ -5,14 +5,12 @@ import java.sql.SQLException;
 
 public class dbConnector {
 
-    private static final String JDBC_URL = "jdbc:mysql://rentool_db:3306/rentool";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "1PbNCMicpFCG3fpjECn4pWP4eiyEDqJc";
-
     public static Connection getConnection() throws SQLException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+            Context ctx = new InitialContext();
+			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/rentoolDB");
+			
+			return ds.getConnection();
         } catch (ClassNotFoundException | SQLException e) {
             throw new SQLException("Database connection error: " + e.getMessage());
         }
