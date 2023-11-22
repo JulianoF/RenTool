@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
+import javax.naming.*;
 
 public class listingServlet extends HttpServlet {
 
@@ -59,7 +60,7 @@ public class listingServlet extends HttpServlet {
                 int rowsAffected = pstmt1.executeUpdate();
 
                 if (rowsAffected <= 0) {
-                    res.sendRedirect("/RenTool/jsp/createListing.jsp");
+                    res.sendRedirect("createListing.jsp");
                 }
             }
 
@@ -88,14 +89,14 @@ public class listingServlet extends HttpServlet {
                 int rowsAffected = pstmt3.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    res.sendRedirect("/RenTool/jsp/index.jsp");
+                    res.sendRedirect("index.jsp");
                 }else{
-                    res.sendRedirect("/RenTool/jsp/createListing.jsp");
+                    res.sendRedirect("createListing.jsp");
                 }
             }
         // Close the connection using the DatabaseHandler method
         dbConnector.closeConnection(connection);
-        } catch (SQLException e) {
+        } catch (SQLException | NamingException e) {
             e.printStackTrace();
             pw.println("<h2>Error: " + e.getMessage() + "</h2>");
         }

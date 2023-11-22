@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
+import javax.naming.*;
 
 public class searchServlet extends HttpServlet {
 
@@ -83,14 +84,14 @@ public class searchServlet extends HttpServlet {
 
             // Close the database connection
             dbConnector.closeConnection(connection);
-        } catch (SQLException e) {
+        } catch (SQLException | NamingException e) {
             e.printStackTrace();
             pw.println("<h2>Error: " + e.getMessage() + "</h2>");
         }        
 
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/RenTool/jsp/searchResults.jsp");
-        dispatcher.forward(req, res);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("searchResults.jsp");
+        dispatcher.forward(request, res);
 
         pw.close();// closing the stream
     }

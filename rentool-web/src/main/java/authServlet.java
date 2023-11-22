@@ -6,9 +6,11 @@ import java.sql.SQLException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
+import javax.naming.*;
 
 public class authServlet extends HttpServlet {
 
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -35,16 +37,16 @@ public class authServlet extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("email", email);
                     session.setAttribute("UserID", resultSet.getInt("UserID"));
-                    response.sendRedirect("/RenTool/jsp/index.jsp");
+                    response.sendRedirect("index.jsp");
                 } else {
                     // Failed login
-                    response.sendRedirect("/RenTool/jsp/login.jsp");
+                    response.sendRedirect("login.jsp");
                 }
             }
 
             // Close the database connection
             dbConnector.closeConnection(connection);
-        } catch (SQLException e) {
+        } catch (SQLException | NamingException e) {
             e.printStackTrace();
             pw.println("<h2>Error: " + e.getMessage() + "</h2>");
         }

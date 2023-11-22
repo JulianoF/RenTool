@@ -8,6 +8,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
 import java.net.*;
+import javax.naming.*;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,7 +21,6 @@ public class creationServlet extends HttpServlet {
 
         response.setContentType("text/html");
         PrintWriter pw = response.getWriter();
-        Context ctx = new InitialContext();
 
         String email = request.getParameter("email");
         String fname = request.getParameter("fname");
@@ -34,7 +34,14 @@ public class creationServlet extends HttpServlet {
 
         String apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
         + URLEncoder.encode(postal + ", " + province + ", " + country, "UTF-8")
-        + "&key=" + ((String) ctx.lookup("java:/comp/env/googleMapsApiKey"));
+        + "&key=";
+        try {
+            Context ctx = new InitialContext();
+            apiUrl += ((String) ctx.lookup("java:/comp/env/googleMapsApiKey"));
+        } catch (NamingException e) {
+            e.printStackTrace();
+            pw.println("<h2>Error: " + e.getMessage() + "</h2>");
+        }
 
         // Make the API request
         URL url = new URL(apiUrl);
@@ -62,6 +69,7 @@ public class creationServlet extends HttpServlet {
         }
         
         try {
+            Context ctx = new InitialContext();
             Connection connection = dbConnector.getConnection();
 
 
@@ -94,15 +102,15 @@ public class creationServlet extends HttpServlet {
                 }
 
                 if (rowsAffected > 0) {
-                    response.sendRedirect("/RenTool/jsp/login.jsp");
+                    response.sendRedirect("login.jsp");
                 } else {
-                    response.sendRedirect("/RenTool/jsp/accCreation.jsp");
+                    response.sendRedirect("accCreation.jsp");
                 }
 
                  // Close the connection using the DatabaseHandler method
                 dbConnector.closeConnection(connection);
             }
-        } catch (SQLException e) {
+        } catch (SQLException | NamingException e) {
             e.printStackTrace();
             pw.println("<h2>Error: " + e.getMessage() + "</h2>");
         }

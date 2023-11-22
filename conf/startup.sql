@@ -78,8 +78,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   CONSTRAINT `orders_FK_2` FOREIGN KEY (`ReceiptNumber`) REFERENCES `payment` (`ReceiptNumber`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/* Set up webapp user if not set up already */
+/* Set up webapp user if not set up already
 CREATE ROLE IF NOT EXISTS 'website';
 GRANT INSERT, UPDATE, DELETE ON rentool.* TO 'website';
-CREATE USER IF NOT EXISTS '${RENTOOL_SERVER_USERNAME}'@'localhost' IDENTIFIED BY '${RENTOOL_SERVER_PASSWORD}' PASSWORD EXPIRE NEVER;
-GRANT 'website' TO '${RENTOOL_SERVER_USERNAME}'@'localhost';
+GRANT 'website' TO 'rentool'@'localhost'; */

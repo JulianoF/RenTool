@@ -1,17 +1,20 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.sql.DataSource;
+
+import javax.naming.*;
 
 
 public class dbConnector {
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException, NamingException {
         try {
             Context ctx = new InitialContext();
 			DataSource ds = (DataSource) ctx.lookup("java:/comp/env/jdbc/rentoolDB");
 			
 			return ds.getConnection();
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException | NamingException e) {
             throw new SQLException("Database connection error: " + e.getMessage());
         }
     }

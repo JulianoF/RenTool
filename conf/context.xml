@@ -32,13 +32,14 @@
     <Resource name="jdbc/rentoolDB"
                 auth="Container"
                 type="javax.sql.DataSource"
-                username="${RENTOOL_SERVER_USERNAME}"
-                password="${RENTOOL_SERVER_PASSWORD}"
+                driverClassName="com.mysql.jdbc.Driver"
+                username="root"
+                password=""
                 url="jdbc:mysql://rentool_db:3306/rentool" 
                 maxTotal="25"
                 maxIdle="10"
                 validationQuery="Select 1"/>
     
     <!-- Google Maps Api key -->
-    <Environment name="googleMapsApiKey" value="${GOOGLE_API_KEY}" type="java.lang.String"/>
+    <Environment name="googleMapsApiKey" value="" type="java.lang.String"/>
 </Context>
