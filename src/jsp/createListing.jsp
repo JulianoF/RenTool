@@ -49,7 +49,7 @@
 
 <div class="container mt-4">
     <h2>Product Listing Form</h2>
-    <form action="MakeListing" method="POST">
+    <form action="MakeListing" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label for="itemName">Item Name</label>
         <input type="text" class="form-control" name="itemName" placeholder="Enter item name" required>

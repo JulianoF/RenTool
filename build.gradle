@@ -36,6 +36,10 @@ war{
        	into('js')
 		include '**/*.js'
    	 }
+	from('src/imgs') {
+       	into('imgs')
+        include '**/*.jpg'
+   	 }
     from('src') {
        	into('WEB-INF')
         include 'web.xml'

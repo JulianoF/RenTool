@@ -11,8 +11,8 @@ public class creationServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        response.setContentType("text/html");// setting the content type
-        PrintWriter pw = response.getWriter();// get the stream to write the data
+        response.setContentType("text/html");
+        PrintWriter pw = response.getWriter();
 
         String email = request.getParameter("email");
         String fname = request.getParameter("fname");

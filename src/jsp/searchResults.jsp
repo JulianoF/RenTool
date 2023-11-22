@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="java.util.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -49,36 +50,47 @@
     </div>
   </nav>
 
-
+<% int i = 0; 
+   int j = 0; 
+   if(request.getAttribute("howManyResults") != null){ 
+      j = (int) request.getAttribute("howManyResults"); 
+   } 
+%>
 <div class="container mt-5 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="col-md-10">
+<!-- USE OF LOOP TO REPEAT THE LAYOUT BELOW FOR EACH LISTING-->
+        <% while( i < j){ 
+           byte[] imageData = (byte[]) request.getAttribute("ImageData_"+i); %>
 
-<!-- USE FOR LOOPS TO REPEAT THE LAYOUT BELOW FOR EACH LISTING-->
             <div class="row p-2 bg-white border rounded">
-                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div>
+                <% if(imageData != null){
+                  String base64Image = Base64.getEncoder().encodeToString(imageData); %>
+                  <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="data:image/jpeg;base64, <%= base64Image %>"></div>
+                 <% }else{ %>
+                <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/Ycfi8RS.png"></div>
+                 <% } %>
+
                 <div class="col-md-6 mt-1">
-                    <h5>LISTING 1 NAME</h5>
+                    <h5><% out.print((String) request.getAttribute("ItemName_"+i));%></h5>
                     <div class="d-flex flex-row">
                         <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>Info Here</span>
                     </div>
-                    <div class="mt-1 mb-1 spec-1"><span>INFO HERE <br></span></div>
-                    <div class="mt-1 mb-1 spec-1"><span>INFO HERE <br></span></div>
-                    <p class="text-justify text-truncate para mb-0">INJECT LISTING DESCRIPTION HERE</p>
+                    <div class="mt-1 mb-1 spec-1"><span>Condition: <% out.print((String) request.getAttribute("Condition_"+i));%> <br></span></div>
+                    <div class="mt-1 mb-1 spec-1"><span>Listed:  <% out.print((String) request.getAttribute("DateListed_"+i));%><br></span></div>
+                    <p class="text-justify text-truncate para mb-0"><% out.print((String) request.getAttribute("Desc_"+i));%></p>
                 </div>
                 <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                     <div class="d-flex flex-row align-items-center">
-                        <h4 class="mr-1">$PRICE.PRICE</h4>
+                        <h4 class="mr-1">$<% out.print((int) request.getAttribute("RentalPrice_"+i));%></h4>
                     </div>
                     <h6 class="text-success">Close By</h6>
                     <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button" onclick="gotoDetails()">Details</button>
                     <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to Cart</button></div>
                 </div>
             </div>
-<!-- USE FOR LOOPS TO REPEAT THE LAYOUT ABOVE FOR EACH LISTING-->
-
-<% session.getAttribute("resultMessage"); %>
-
+            <% i++; 
+          } %>
         </div>
     </div>
 </div>

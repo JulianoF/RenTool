@@ -9,6 +9,7 @@
     <title>RenTool</title>
   </head>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
    <div class="container-fluid">
@@ -52,13 +53,25 @@
     <br>
     <br>
 
-    <% out.print("INDEX PAGE"); %> 
-
-    <% if (session != null && session.getAttribute("email") != null) { %>
-        <p>Welcome, <%= session.getAttribute("UserID") %>!</p>
-    <% } else { %>
-              <p>You are not logged in.</p>
-    <% } %>
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="imgs/toolsLots.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">RenTool</h1>
+        <p class="lead">Aiming to be the Number One tool rental service around. With RenTool, make some extra cash or get that last minute tool you know you will only use once.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <% if (session != null && session.getAttribute("email") != null) { %>
+           <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="gotoListing()">Create a Listing</button>
+        <% } else { %>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="gotoLogin()">Login</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4" onclick="gotoCreation()">Sign Up</button>
+        <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <br>
     <br>
@@ -79,5 +92,16 @@
         <p class="text-center text-muted">2023 RenTool, Inc</p>
       </footer>
     </div>
+    <script>
+        function gotoListing(){
+            window.location.href = "createListing.jsp";
+        }
+        function gotoLogin(){
+            window.location.href = "login.jsp";
+        }
+        function gotoCreation(){
+            window.location.href = "accCreation.jsp";
+        }
+    </script>
 </body>
 </html> 
