@@ -28,6 +28,11 @@
     <servlet>
         <servlet-name>listingServlet</servlet-name>
         <servlet-class>listingServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>16777216</max-file-size>
+            <max-request-size>16777216</max-request-size>
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
     </servlet>
 
     <!-- Servlet Mapping -->
