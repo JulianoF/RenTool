@@ -67,6 +67,8 @@
            String dateListed = (String) request.getAttribute("DateListed_"+i);
            String desc = (String) request.getAttribute("Desc_"+i);
            int rentalPrice = (int) request.getAttribute("RentalPrice_"+i);
+           double longitude = (double) request.getAttribute("long_"+i);
+           double latitude = (double) request.getAttribute("lat_"+i);
 
            request.getSession().setAttribute("ImageData", imageData);
            request.getSession().setAttribute("ItemName", itemName);
@@ -74,6 +76,8 @@
            request.getSession().setAttribute("DateListed", dateListed);
            request.getSession().setAttribute("Desc", desc);
            request.getSession().setAttribute("RentalPrice", rentalPrice);
+           request.getSession().setAttribute("long", longitude);
+           request.getSession().setAttribute("lat", latitude);
            %>
 
             <div class="row p-2 bg-white border rounded">

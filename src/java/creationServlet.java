@@ -33,7 +33,7 @@ public class creationServlet extends HttpServlet {
 
         String apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
         + URLEncoder.encode(postal + ", " + province + ", " + country, "UTF-8")
-        + "&key=";
+        + "&key=AIzaSyBPHcEtg4WlomBsIFRYqIUl9gawo8-qqNc";
 
         // Make the API request
         URL url = new URL(apiUrl);
@@ -49,8 +49,8 @@ public class creationServlet extends HttpServlet {
         }
         reader.close();
         urlConnection.disconnect();
-        double latitude =0;
-        double longitude =0;
+        double latitude =44.0;
+        double longitude =-79.0;
         // Parse the JSON response to extract latitude and longitude
         JSONObject jsonResponse = new JSONObject(urlResponse.toString());
         JSONArray results = jsonResponse.getJSONArray("results");

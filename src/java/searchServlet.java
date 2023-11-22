@@ -16,12 +16,10 @@ public class searchServlet extends HttpServlet {
 
         String searchQuery = request.getParameter("searchField");
 
-        // SQL CODE HERE
 
         try {
             Connection connection = dbConnector.getConnection();
 
-            // Prepare the SQL query for authentication
             String sql = "SELECT items.*, listing.*\n" +
                          "FROM items\n" +
                          "LEFT JOIN listing ON items.ItemID = listing.ItemID\n" +
@@ -63,11 +61,25 @@ public class searchServlet extends HttpServlet {
                     request.setAttribute("RentalPrice_"+Integer.toString(i), resultSet.getInt("RentalPrice"));
                     request.setAttribute("Condition_"+Integer.toString(i), resultSet.getString("ItemCondition"));
                     request.setAttribute("DateListed_"+Integer.toString(i), resultSet.getString("DateListed"));
+                    int id = (int) resultSet.getInt("UserID");
 
+                    String sql2 = "SELECT * FROM location WHERE UserID_Location = "+id+";";
+                    try(PreparedStatement pstmt2 = connection.prepareStatement(sql2)){
+                        ResultSet resultSet2 = pstmt2.executeQuery();
+                        if(resultSet2.next()){
+                            request.setAttribute("long_"+Integer.toString(i), resultSet2.getDouble("longitude"));
+                            request.setAttribute("lat_"+Integer.toString(i), resultSet2.getDouble("latitude"));
+                        }
+                        else{
+                            request.setAttribute("long_"+Integer.toString(i), 0.0);
+                            request.setAttribute("lat_"+Integer.toString(i), 0.0);                           
+                        }
+                    }
                     i++;
                 }
                 request.setAttribute("howManyResults", i);
             }
+
 
             // Close the database connection
             dbConnector.closeConnection(connection);
