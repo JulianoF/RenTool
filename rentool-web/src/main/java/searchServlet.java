@@ -60,7 +60,7 @@ public class searchServlet extends HttpServlet {
 
         req.setAttribute("resultMessage", searchQuery);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("searchResults.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/RenTool/jsp/searchResults.jsp");
         dispatcher.forward(req, res);
 
         pw.close();// closing the stream

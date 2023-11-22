@@ -11,6 +11,6 @@ public class logoutServlet extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("/RenTool/jsp/login.jsp");
     }
 }

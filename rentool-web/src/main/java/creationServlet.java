@@ -42,9 +42,9 @@ public class creationServlet extends HttpServlet {
                 int rowsAffected = pstmt.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    response.sendRedirect("login.jsp");
+                    response.sendRedirect("/RenTool/jsp/login.jsp");
                 } else {
-                    response.sendRedirect("accCreation.jsp");
+                    response.sendRedirect("/RenTool/jsp/accCreation.jsp");
                 }
 
                  // Close the connection using the DatabaseHandler method

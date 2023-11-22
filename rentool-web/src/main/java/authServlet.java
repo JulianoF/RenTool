@@ -3,19 +3,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
+import jakarta.servlet.*;
+import java.io.*;
 
 public class authServlet extends HttpServlet {
-
-    public authServlet() {
-        super();
-    }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,10 +35,10 @@ public class authServlet extends HttpServlet {
                     HttpSession session = request.getSession();
                     session.setAttribute("email", email);
                     session.setAttribute("UserID", resultSet.getInt("UserID"));
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("/RenTool/jsp/index.jsp");
                 } else {
                     // Failed login
-                    response.sendRedirect("login.jsp");
+                    response.sendRedirect("/RenTool/jsp/login.jsp");
                 }
             }
 

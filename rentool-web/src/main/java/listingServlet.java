@@ -49,7 +49,7 @@ public class listingServlet extends HttpServlet {
                 int rowsAffected = pstmt1.executeUpdate();
 
                 if (rowsAffected <= 0) {
-                    res.sendRedirect("createListing.jsp");
+                    res.sendRedirect("/RenTool/jsp/createListing.jsp");
                 }
             }
 
@@ -78,9 +78,9 @@ public class listingServlet extends HttpServlet {
                 int rowsAffected = pstmt3.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    res.sendRedirect("index.jsp");
+                    res.sendRedirect("/RenTool/jsp/index.jsp");
                 }else{
-                    res.sendRedirect("createListing.jsp");
+                    res.sendRedirect("/RenTool/jsp/createListing.jsp");
                 }
             }
         // Close the connection using the DatabaseHandler method
