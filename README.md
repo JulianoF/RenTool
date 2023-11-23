@@ -66,3 +66,33 @@ Then edit your **system** environment variables *not user environment variables*
 ```
 PATH=[existing paths];%GRADLE_HOME%\bin
 ```
+
+## Building and Deploying
+
+### Cloning
+
+First, clone the repository into its own folder if this has not been done yet (for additional info, click clone/code in the upper right of this github page).
+
+### Setting environment variables
+
+#### Mysql variable(s)
+
+In ```conf/mysql-conf.env``` there is a variable ```MYSQL_ROOT_PASSWORD```. This variable needs to be set **PRIOR** to running the containers as mysql will fail to start without it. It can be anything you choose, but a random string ~20 characters long is reccomended.
+
+#### Tomcat variables
+
+In ```conf/context.xml```, at the bottom of the file exist two `resource` tags. The first is the JBDC connection resource, which requires the password set in ```conf/mysql-conf.env``` for its `password` attribute. The second is the API key for Google Maps. This must be set up using the Google Cloud Console and may vary depending on deployment. The webapp will function without this key, but location functionaly will not work correctly (location coordinates will be defaulted to a preset value).
+
+### Building
+
+At the root level of the cloned local repository, run ```gradle``` with no parameters. It should run the default tasks that build and package the code into .war files and deploy them to the webapps/ folder.
+
+### Starting
+
+**NOTE: If on windows, the docker engine must be started before continuing!**
+
+In the root level of the cloned local repository, run ```gradle dockerStart``` (case sensitive). This should start a pair of docker containers on their own virtual network with the prefix *rentool*. After a few seconds (~20s), the webapp should be available at ```localhost:8080/RenTool```, and the mysql database at ```localhost:3306``` using user `root` with the password specified earlier. This database should be pre-populated with tables/schema, but no data.
+
+## Stopping/Shutting Down
+
+Once again in the root level of the cloned local repository, run ```gradle dockerStop``` to stop and remove the containers. **NOTE:***This will leave a database volume behind for persistance so that data is preserved for if the containers are started again and must be removed manually using docker cli or docker desktop. `docker volume rm [volume-name]`*

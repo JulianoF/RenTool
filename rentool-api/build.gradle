@@ -1,6 +1,7 @@
 plugins {
 	id 'java'
 	id 'war'
+	id 'eclipse'
 }
 
 repositories{
@@ -22,6 +23,7 @@ dependencies{
 }
 
 war {
+	archiveBaseName = 'api'
     destinationDirectory = file('../webapps/')
 	from('docroot') {
 		exclude 'WEB-INF'
