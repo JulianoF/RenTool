@@ -21,13 +21,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-           <a class="nav-link active" aria-current="page" href="/RenTool/jsp/index.jsp">Home</a>
+           <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
          </li>
           <li class="nav-item">
-            <a class="nav-link" href="/RenTool/jsp/profile.jsp">Profile</a>
+            <a class="nav-link" href="profile.jsp">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/RenTool/jsp/createListing.jsp">Create Listing</a>
+            <a class="nav-link" href="createListing.jsp">Create Listing</a>
           </li>
 
           <% if (session != null && session.getAttribute("email") != null) { %>
@@ -36,7 +36,7 @@
             </li>
           <% } else { %>
             <li class="nav-item">
-              <a class="nav-link" href="/RenTool/jsp/login.jsp">Login</a>
+              <a class="nav-link" href="login.jsp">Login</a>
             </li>
           <% } %>
 
@@ -148,8 +148,8 @@
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="/RenTool/jsp/index.jsp" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="/RenTool/jsp/searchResults.jsp" class="nav-link px-2 text-muted">Search</a></li>
+          <li class="nav-item"><a href="index.jsp" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="searchResults.jsp" class="nav-link px-2 text-muted">Search</a></li>
           <% if (session != null && session.getAttribute("email") != null) { %>
               <li class="nav-item"><a href="Logout" class="nav-link px-2 text-muted">Logout</a></li>
           <% } else { %>

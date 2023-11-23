@@ -1,24 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="output" path="bin/default"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21/"/>
+	<classpathentry kind="src" output="bin/main" path="src/main/java">
+		<attributes>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17/"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry sourcepath="C:/Users/WilliamChamberlain/.gradle/caches/modules-2/files-2.1/jakarta.servlet/jakarta.servlet-api/5.0.0/74c2d41d07a6eff5526c11b5e782b0170e996d6b/jakarta.servlet-api-5.0.0-sources.jar" kind="lib" path="C:/Users/WilliamChamberlain/.gradle/caches/modules-2/files-2.1/jakarta.servlet/jakarta.servlet-api/5.0.0/2e6b8ccde55522c879434ddec3714683ccae6867/jakarta.servlet-api-5.0.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/WilliamChamberlain/.gradle/caches/modules-2/files-2.1/com.mysql/mysql-connector-j/8.2.0/99f95a5e32655c65269415ea3259e6bf7e8d3559/mysql-connector-j-8.2.0-sources.jar" kind="lib" path="C:/Users/WilliamChamberlain/.gradle/caches/modules-2/files-2.1/com.mysql/mysql-connector-j/8.2.0/56d34aea30915904b1c883f1cfae731dd2df6029/mysql-connector-j-8.2.0.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry sourcepath="C:/Users/WilliamChamberlain/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.21.9/ba3f8d6e858362891791bf00c62fc671849fbc4d/protobuf-java-3.21.9-sources.jar" kind="lib" path="C:/Users/WilliamChamberlain/.gradle/caches/modules-2/files-2.1/com.google.protobuf/protobuf-java/3.21.9/ed1240d9231044ce6ccf1978512f6e44416bb7e7/protobuf-java-3.21.9.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value="main,test"/>
-			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
+	<classpathentry kind="output" path="bin/default"/>
 </classpath>

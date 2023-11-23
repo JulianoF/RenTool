@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>rentool-api</name>
-	<comment></comment>
+	<name>RenTool</name>
+	<comment>Project RenTool created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -35,7 +35,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1700707528353</id>
+			<id>1700707528340</id>
 			<name></name>
 			<type>30</type>
 			<matcher>

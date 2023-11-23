@@ -12,14 +12,16 @@ repositories{
 sourceSets {
     main {
         java {
-            srcDirs = ['src/java']
+            srcDirs = ['src/main/java']
         }
     }
 }
 
 dependencies{
-	implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0'
-	implementation 'com.mysql:mysql-connector-j:8.2.0'}
+	implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+	implementation 'com.mysql:mysql-connector-j:8.2.0'
+	implementation 'org.json:json:20231013'
+}
 
 war {
 	archiveBaseName = 'RenTool'

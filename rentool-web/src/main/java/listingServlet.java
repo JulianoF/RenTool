@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import jakarta.servlet.http.*;
 import jakarta.servlet.*;
 import java.io.*;
+import javax.naming.*;
 
 public class listingServlet extends HttpServlet {
 
@@ -18,6 +19,13 @@ public class listingServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();// get the stream to write the data
 
         HttpSession session = req.getSession();
+
+        InputStream inputStream = null; 
+        Part filePart = req.getPart("productPhoto");
+
+        if(filePart != null){
+            inputStream = filePart.getInputStream();
+        }
 
         int userID = (int) session.getAttribute("UserID");
         int itemID;
@@ -37,19 +45,22 @@ public class listingServlet extends HttpServlet {
         try {
             Connection connection = dbConnector.getConnection();
 
-            String sql = "INSERT INTO items (UserID, ItemName, ItemCondition,RentalPrice,Description) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO items (UserID, ItemName, ItemCondition,RentalPrice,Description,ProductImage) VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement pstmt1 = connection.prepareStatement(sql)) {
                 pstmt1.setInt(1, userID);
                 pstmt1.setString(2, itemName);
                 pstmt1.setString(3, itemCondition);
                 pstmt1.setString(4, rentalPrice);
                 pstmt1.setString(5, description);
-
+                if (inputStream != null) {
+                    // fetches input stream of the upload file for the blob column
+                    pstmt1.setBlob(6, inputStream);
+                }
                 // Execute the query
                 int rowsAffected = pstmt1.executeUpdate();
 
                 if (rowsAffected <= 0) {
-                    res.sendRedirect("/RenTool/jsp/createListing.jsp");
+                    res.sendRedirect("createListing.jsp");
                 }
             }
 
@@ -78,14 +89,14 @@ public class listingServlet extends HttpServlet {
                 int rowsAffected = pstmt3.executeUpdate();
 
                 if (rowsAffected > 0) {
-                    res.sendRedirect("/RenTool/jsp/index.jsp");
+                    res.sendRedirect("index.jsp");
                 }else{
-                    res.sendRedirect("/RenTool/jsp/createListing.jsp");
+                    res.sendRedirect("createListing.jsp");
                 }
             }
         // Close the connection using the DatabaseHandler method
         dbConnector.closeConnection(connection);
-        } catch (SQLException e) {
+        } catch (SQLException | NamingException e) {
             e.printStackTrace();
             pw.println("<h2>Error: " + e.getMessage() + "</h2>");
         }
