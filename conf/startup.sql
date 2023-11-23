@@ -8,6 +8,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   `FirstName` varchar(45) DEFAULT NULL,
   `LastName` varchar(45) DEFAULT NULL,
   `Password` varchar(45) DEFAULT NULL,
+  `Country` varchar(45) DEFAULT NULL,
+  `Province` varchar(45) DEFAULT NULL,
+  `City` varchar(45) DEFAULT NULL,
   `PostalCode` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
