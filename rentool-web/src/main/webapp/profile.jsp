@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html"%>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
+<%@ page import="java.sql.*" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RenTool</title>
   </head>
-  <link rel="stylesheet" type="text/css" href="/RenTool/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
    <div class="container-fluid">
@@ -22,7 +23,7 @@
            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
          </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.jsp">Profile</a>
+            <form action="GotoProfile" method = "POST"> <button class="nav-link" type ="submit">Profile</button></form>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="createListing.jsp">Create Listing</a>
@@ -48,11 +49,40 @@
   </nav>
 
     <br>
-    <br>
-    <br>
-    <br>
+  <% if (session != null && session.getAttribute("email") != null) { %>
+    <div class="container">
+      <h1 class="my-5 display-4 fw-bold ls-tight"> Order History</h1>
+        <div class="row">
 
-    <% out.print("PROFILE PAGE"); %> 
+<% int i = 0; 
+   int j = 0; 
+   if(request.getAttribute("howManyOrder") != null){ 
+      j = (int) request.getAttribute("howManyOrder"); 
+   } 
+%>
+
+        <% while( i < j){ 
+          String itemName = (String) request.getAttribute("ItemName_"+i);
+           String condition = (String) request.getAttribute("Cond_"+i);
+           int rentalPrice = (int) request.getAttribute("RentPrice_"+i); %>
+    <!-- Repeat this column structure for each order -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Order Name: <% out.print(itemName);%></h5>
+          <p class="card-text">Price: $<% out.print(rentalPrice);%></p>
+          <p class="card-text">Condition: <% out.print(condition);%></p>
+        </div>
+      </div>
+    </div>
+ 
+            <% i++; 
+          } %>
+  </div>
+</div>
+  <% } else { %>
+        <h1 class="my-5 display-4 fw-bold ls-tight"> Please Login to View Profile</h1>
+  <% } %>
 
     <br>
     <br>

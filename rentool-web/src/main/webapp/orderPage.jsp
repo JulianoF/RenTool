@@ -3,14 +3,12 @@
 
 <!DOCTYPE html>
 <html>
-
-  <head>
+   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RenTool</title>
   </head>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
    <div class="container-fluid">
@@ -49,72 +47,31 @@
     </div>
   </nav>
 
-    <section class="vh-100" style="background-color: hsl(0, 0%, 96%)">
-        <div class="container py-5 h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-              <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                <div class="card-body p-5 text-center">
-      
-                  <h3 class="mb-5">Sign in</h3>
+    <br>
+    <br>
+    <br>
+    <br>
 
-                <form action="UserAuth" method="POST">
+    <h1 class="my-5 display-4 fw-bold ls-tight"> Order Placement Was A Success</h1>
 
-                  <div class="form-outline mb-4">
-                    <input type="email" name="emailInput" class="form-control form-control-lg" />
-                    <label class="form-label" for="emailInput">Email</label>
-                  </div>
-      
-                  <div class="form-outline mb-4">
-                    <input type="password" name="passwordInput" class="form-control form-control-lg" />
-                    <label class="form-label" for="PasswordInput">Password</label>
-                  </div>
-      
-                  <!-- Checkbox -->
-                  <div class="form-check d-flex justify-content-start mb-4">
-                    <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                    <label class="form-check-label" for="form1Example3"> Remember password </label>
-                  </div>
-      
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-                  
-                  </form>
-
-                  <hr class="my-4">
-      
-                  <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
-                    type="submit" onclick="gotoCreation()" ><i class="fab fa-google me-2"></i> Not a Member? Sign up Now</button>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <br>
+    <br>
+    <br>
+    <br>
 
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item"><a href="index.jsp" class="nav-link px-2 text-muted">Home</a></li>
           <li class="nav-item"><a href="searchResults.jsp" class="nav-link px-2 text-muted">Search</a></li>
-
           <% if (session != null && session.getAttribute("email") != null) { %>
               <li class="nav-item"><a href="Logout" class="nav-link px-2 text-muted">Logout</a></li>
           <% } else { %>
               <li class="nav-item"><a href="Logout" class="nav-link px-2 text-muted">Login</a></li>
           <% } %>
-          
-
         </ul>
         <p class="text-center text-muted">2023 RenTool, Inc</p>
       </footer>
     </div>
-
-    <script>
-        function gotoCreation(){
-            window.location.href = "accCreation.jsp";
-        }
-    </script>
 </body>
-</html> 
+</html>

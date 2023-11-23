@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RenTool</title>
   </head>
-  <link rel="stylesheet" type="text/css" href="/RenTool/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
 <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -25,7 +25,7 @@
            <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
          </li>
           <li class="nav-item">
-            <a class="nav-link" href="profile.jsp">Profile</a>
+            <form action="GotoProfile" method = "POST"> <button class="nav-link" type ="submit">Profile</button></form>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="createListing.jsp">Create Listing</a>

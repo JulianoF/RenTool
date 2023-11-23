@@ -38,8 +38,8 @@ public class searchServlet extends HttpServlet {
                          "    SELECT 1\n" +
                          "    FROM items\n" +
                          "    WHERE ItemName LIKE ?\n" +
-                         ")\n" +
-                         "LIMIT 4;";
+                         ");\n"; //+
+                         //"LIMIT 4;";
             try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                 pstmt.setString(1, "%" + searchQuery + "%");
                 pstmt.setString(2, "%" + searchQuery + "%");
